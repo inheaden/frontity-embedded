@@ -78,9 +78,9 @@ class Frontity_Embedded_Capability_Tokens {
     // WordPress.
     if ( $post_type === 'page' ) {
       $capabilities = array_merge( $capabilities, array(
-        "read_page"   => $id,
-        "edit_page"   => $id,
-        "delete_page" => $id,
+        "read_page"   => $post_id,
+        "edit_page"   => $post_id,
+        "delete_page" => $post_id,
       ) );
     }
 
