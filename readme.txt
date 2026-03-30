@@ -3,7 +3,7 @@ Contributors: frontity
 Tags: rest, api, embedded, decoupled, frontity
 Requires at least: 5.6
 Tested up to: 5.9
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 Requires PHP: 7.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html

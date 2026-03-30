@@ -4,7 +4,9 @@
  * Plugin settings. Edit them to match your Frontity server configuration.
  */
 $frontity_settings = get_option( 'frontity_embedded_plugin_settings' );
-$frontity_server = $frontity_settings['frontity_server'];
+$frontity_server = is_array( $frontity_settings ) && isset( $frontity_settings['frontity_server'] )
+  ? $frontity_settings['frontity_server']
+  : '';
 
 /**
  * Alternatively, you can use PHP constants or environment variables.
@@ -131,7 +133,6 @@ if ( is_wp_error( $response ) ) {
     do_action('frontity_embedded_wp_head');
 
     if (is_admin_bar_showing()) {
-        add_action( 'admin_print_styles', 'print_emoji_styles' );
         add_action( 'admin_print_styles', 'print_admin_styles', 20 );
         do_action( 'admin_print_styles' );
     }
@@ -147,7 +148,6 @@ if ( is_wp_error( $response ) ) {
     // Echo the admin bar HTML.
     if (is_admin_bar_showing()) {
         // Get the scripts and styles of the Admin Bar and echo them.
-        add_action( 'admin_print_scripts', 'print_emoji_detection_script' );
         add_action( 'admin_print_scripts', 'print_head_scripts', 20 );
         do_action( 'admin_print_scripts' );
         _admin_bar_bump_cb();

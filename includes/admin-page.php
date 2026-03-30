@@ -60,9 +60,12 @@ function frontity_embedded_validate_settings( $input ) {
 
 function frontity_embedded_frontity_server_input() {
   $options = get_option( 'frontity_embedded_plugin_settings' );
+  $frontity_server_value = is_array( $options ) && isset( $options['frontity_server'] )
+    ? $options['frontity_server']
+    : '';
   printf(
     '<input type="text" name="%s" value="%s" style="width: 100%%; max-width: 500px;">',
     esc_attr( 'frontity_embedded_plugin_settings[frontity_server]' ),
-    esc_attr( $options['frontity_server'] )
+    esc_attr( $frontity_server_value )
   );
 }
